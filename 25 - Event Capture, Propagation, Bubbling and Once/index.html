@@ -40,8 +40,25 @@
   }
 </style>
 
-<button></button>
+<button id="button">Click Me</button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const btn = document.querySelector('button');
+  function logtext(e) {
+    console.log(this.classList.value);
+    //e.stopPropagation();
+  }
+
+  divs.forEach(div => div.addEventListener('click', logtext, {
+    once: true
+  }));
+
+  button.addEventListener('click', () => {
+    console.log("Clicked!");
+  },
+    {
+    once: true
+  });
 
 </script>
 </body>
